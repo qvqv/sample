@@ -1,0 +1,171 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+/*
+ * Globals
+ */
+body {
+    font-family: 'Noto Sans Japanese', sans-serif;
+    color: #555;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.btn {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*
+ * Override Bootstrap's default container.
+ */
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/*
+ * Blog name and description
+ */
+.blog-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.blog-title {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 60px;
+  font-weight: normal;
+}
+.blog-description {
+  font-size: 20px;
+  color: #999;
+}
+
+/*
+ * navbar
+ */
+.navbar-default {
+  background-color: #a7d0cc;
+  border-color: #e7e7e7;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: #eaacac;
+}
+.navbar-brand-div {
+    width: 200px;
+    text-align: center;
+}
+.navbar-default .navbar-brand {
+    color: #317198;
+    margin-top:-10px;
+}
+.navbar-default .navbar-brand span {
+    font-size: 0.5em;
+}
+
+/*
+ * Main column and sidebar layout
+ */
+.blog-main {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Pagination */
+.pager {
+  margin-bottom: 60px;
+  text-align: left;
+}
+.pager > li > a {
+  width: 140px;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 60px;
+}
+.blog-post-title {
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+.blog-post-meta {
+  margin-bottom: 20px;
+  color: #999;
+}
+
+/*
+ * Footer
+ */
+.blog-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #a7d0cc;
+  border-top: 1px solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+/*
+ * ログイン画面
+ */
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.accordion-toggle .panel-heading {
+    cursor: pointer;
+}
+.accordion-toggle a.panel-heading:after {
+    font-family: 'FontAwesome';
+    content:"\f0d8";
+    float: right;
+    color: inherit;
+}
+.accordion-toggle a.collapsed:after {
+    font-family: 'FontAwesome';
+    content:"\f0d7";
+    float: right;
+    color: inherit;
+}
+
+/*
+ * テキスト
+ */
+@media (max-width: 768px) {
+    h1,
+    .h1 {
+      font-size: 30px;
+    }
+    h2,
+    .h2 {
+      font-size: 24px;
+    }
+    h3,
+    .h3 {
+      font-size: 18px;
+    }
+    .jumbotron p {
+      font-size: 16px;
+    }
+}

@@ -1,0 +1,18 @@
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    RewriteRule ^(apple-touch-icon-.*)-precomposed\.png$ web/img/icon/$1.png [L]
+	RewriteRule ^(favicon\.ico|favicon.*\.png|android-chrome.*\.png|mstile.*\.png|apple-touch-icon.*\.png)$ web/img/icon/$1
+
+    RewriteBase /
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+<IfModule mod_env.c>
+    SetEnv CI_ENV development
+</IfModule>
