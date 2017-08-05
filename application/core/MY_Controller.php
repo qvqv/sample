@@ -29,6 +29,46 @@ class My_Controller extends CI_Controller
             "is_login" => 1,
         ];
         $this->session->set_userdata($data);
+
+        $this->t_user->login_access($u->id);
+    }
+
+    /**
+     * メール送信
+     */
+	protected function send_mail($title, $message, $to="", $cc="", $bcc="")
+    {
+        $this->load->library('email');
+
+        $this->email->set_newline("\r\n");
+        $this->email->from(SITE_EMAIL, SITE_NAME);
+        if (empty($to)) {
+            $to = SITE_EMAIL;
+        } else if (empty($bcc)) {
+            $bcc = SITE_EMAIL;
+        }
+        $this->email->to($to);
+        if (!empty($cc)) {
+            $this->email->cc($cc);
+        }
+        if (!empty($bcc)) {
+            $this->email->bcc($bcc);
+        }
+
+        $this->email->subject($title);
+        $this->email->message($message);
+
+        if (ENVIRONMENT != 'production') {
+            echo $this->email->print_debugger();
+            exit;
+        }
+
+        if ($this->email->send()) {
+            return true;
+        } else {
+            // :TODO エラー処理
+            return false;
+        }
     }
 
 }

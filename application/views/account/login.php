@@ -21,4 +21,7 @@
     <div class="text-right">
         <a href="<?= base_url("account/regist") ?>">新規登録はこちら</a>
     </div>
+    <div class="text-right">
+        <a href="<?= base_url("account/reminder") ?>">パスワードを忘れた方はこちら</a>
+    </div>
 </form>

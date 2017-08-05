@@ -5,7 +5,7 @@
 <?php endif; ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        データ登録
+        <?= (isset($id) && !empty($id)) ? "データ更新" : "データ登録" ?>
     </div>
     <div class="panel-body">
         <input type="hidden" name="seg" value="regist_form">
@@ -34,6 +34,5 @@
 </div>
 
 <div class="text-center">
-    <button type="sumbit" class="btn btn-primary ">登録</button>
+    <button type="sumbit" class="btn btn-primary"><?= (isset($id) && !empty($id)) ? "更新" : "登録" ?></button>
 </div>
-</form>

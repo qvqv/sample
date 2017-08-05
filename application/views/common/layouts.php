@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="/web/css/bootstrap/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/web/css/font-awesome/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="/web/css/common.css">
-    <title>サンプルサイト<?= isset($page_title) ? ' | '.$page_title : '' ?></title>
     <script src="/web/js/jquery/jquery-2.2.0.min.js"></script>
     <script src="/web/css/bootstrap/bootstrap.min.js"></script>
+    <title>サンプルサイト<?= isset($page_title) ? ' | '.$page_title : '' ?></title>
 </head>
 <body>
+    <div id="main-container">
 
     <?php $this->load->view('/common/navbar') ?>
 
@@ -26,13 +27,12 @@
         <?php endforeach; ?>
     </div>
 
-    <footer id="fix-footer">
+    <footer id="footer">
       <p>Copyright (C) 2016 qv All Rights Reserved.</p>
-      <p>
-          <a href="#"><i class="fa fa-arrow-circle-up"></i>&nbsp;top</a>
-      </p>
+      <p><a href="#"><i class="fa fa-arrow-circle-up"></i>&nbsp;top</a></p>
     </footer>
 
+    </div>
     <?php $this->load->view('/common/analytics') ?>
 </body>
 </html>

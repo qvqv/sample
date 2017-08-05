@@ -24,9 +24,7 @@ class Product extends MY_Controller {
 
     public function add()
     {
-        $config = $this->validation_rules();
-        $this->form_validation->set_rules($config);
-
+        $this->form_validation->set_rules($this->rules());
         if ($this->form_validation->run()) {
             $this->save();
         }
@@ -36,9 +34,7 @@ class Product extends MY_Controller {
 
     public function edit($id)
     {
-        $config = $this->validation_rules();
-        $this->form_validation->set_rules($config);
-
+        $this->form_validation->set_rules($this->rules());
         if ($this->form_validation->run()) {
             $this->save($id);
         }
@@ -54,20 +50,11 @@ class Product extends MY_Controller {
     public function delete($id)
     {
         if (!$this->t_product->delete($id)) {
-            $this->session->set_flashdata('danger', '削除できませんでした。');
+            $this->session->set_flashdata('danger', '削除できませんでした');
+        } else {
+            $this->session->set_flashdata('success', '削除が完了しました');
         }
-        $this->view('user/product/lists');
-    }
-
-    private function validation_rules()
-	{
-        return [
-            [
-                'field' => 'price',
-                'label' => '販売価格',
-                'rules' => 'required|numeric|greater_than_equal_to[300]|less_than_equal_to[9999999]'
-            ],
-        ];
+        redirect('user/product/lists');
     }
 
     private function save($id="")
@@ -85,6 +72,41 @@ class Product extends MY_Controller {
         }
 
         redirect('user/product/lists');
+    }
+
+    ///////////////////////////////////////////////////////////////
+
+    private function rules()
+    {
+        $key = $this->router->method;
+        $config = [
+            'add' => [
+                [
+                    'field' => 'name',
+                    'label' => '商品名',
+                    'rules' => 'required|max_length[200]'
+                ],
+                [
+                    'field' => 'price',
+                    'label' => '販売価格',
+                    'rules' => 'required|numeric|greater_than_equal_to[300]|less_than_equal_to[9999999]'
+                ],
+            ],
+            'edit' => [
+                [
+                    'field' => 'name',
+                    'label' => '商品名',
+                    'rules' => 'required|max_length[200]'
+                ],
+                [
+                    'field' => 'price',
+                    'label' => '販売価格',
+                    'rules' => 'required|numeric|greater_than_equal_to[300]|less_than_equal_to[9999999]'
+                ],
+            ],
+        ];
+
+        return $config[$key];
     }
 
 }

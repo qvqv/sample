@@ -67,6 +67,9 @@ if (!function_exists('f_date')) {
      */
     function f_date($date, $format='Y/m/d')
     {
+        if (empty($date)) {
+            return "";
+        }
         return date($format, strtotime($date));
     }
 }
@@ -80,6 +83,9 @@ if (!function_exists('f_datetime')) {
      */
     function f_datetime($datetime, $format='Y/m/d H:i:s')
     {
+        if (empty($datetime)) {
+            return "";
+        }
         return date($format, strtotime($datetime));
     }
 }

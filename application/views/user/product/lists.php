@@ -20,10 +20,16 @@
                 <td nowrap class="price"><i class="fa fa-yen"></i><?= number_format($row->price) ?></td>
                 <td nowrap class="memo"><?= nl2br(h($row->memo)) ?></td>
                 <td nowrap class="edit text-center">
-                    <a href="<?= base_url('user/product/edit/' . $row->id) ?>"><i class="fa fa-pencil fa-lg"></i></a>
+                    <a href="<?= base_url('user/product/edit/' . $row->id) ?>">
+                        <button type="button" class="btn btn-info">
+                            <i class="fa fa-pencil fa-lg"></i>
+                        </button>
+                    </a>
                 </td>
                 <td nowrap class="delete text-center">
-                    <a href="<?= base_url('user/product/delete/' . $row->id) ?>"><i class="fa fa-trash fa-lg"></i></a>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#del_confirm" data-link="<?= base_url('user/product/delete/'.$row->id) ?>">
+                        <i class="fa fa-trash fa-lg"></i>
+                    </button>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -40,3 +46,5 @@
     </div>
 </div>
 <?php endif; ?>
+
+<?php $this->load->view('/common/modal/del_confirm') ?>
